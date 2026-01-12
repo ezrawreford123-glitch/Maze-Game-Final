@@ -38,9 +38,9 @@
             // 
             this.label1.Font = new System.Drawing.Font("Cascadia Mono", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(2, 9);
+            this.label1.Location = new System.Drawing.Point(-4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(589, 55);
+            this.label1.Size = new System.Drawing.Size(668, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "Help the mouse find the cheese!";
             // 
@@ -48,7 +48,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label2.Location = new System.Drawing.Point(568, 23);
+            this.label2.Location = new System.Drawing.Point(588, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(179, 23);
             this.label2.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label3.Location = new System.Drawing.Point(568, 64);
+            this.label3.Location = new System.Drawing.Point(588, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(191, 44);
             this.label3.TabIndex = 2;
@@ -79,6 +79,7 @@
             this.Text = "Maze";
             this.Load += new System.EventHandler(this.mazeForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.mazeForm_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mazeForm_KeyDown);
             this.ResumeLayout(false);
 
         }
