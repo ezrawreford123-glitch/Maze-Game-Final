@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mazeForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -65,6 +67,10 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Your Current Time:";
             // 
+            // gameTimer
+            // 
+            this.gameTimer.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // mazeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -80,6 +86,7 @@
             this.Load += new System.EventHandler(this.mazeForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.mazeForm_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mazeForm_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mazeForm_KeyUp);
             this.ResumeLayout(false);
 
         }
@@ -89,6 +96,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer gameTimer;
     }
 }
 

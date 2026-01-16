@@ -13,6 +13,7 @@ namespace Maze_Game_Final
     public partial class mazeForm : Form
 
     {
+        
         SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
 
 
@@ -42,6 +43,21 @@ namespace Maze_Game_Final
             g.DrawLine(wallPen, 200, 400, 500, 400);
             g.DrawLine(wallPen, 100, 200, 100, 30);
 
+            Pen pen = new Pen(Color.Black);
+            Brush bodybrush = new SolidBrush(Color.LightGray);
+            Brush earBrush = new SolidBrush(Color.Pink);
+            Brush eyebrush = new SolidBrush(Color.Black);
+            g.FillEllipse(bodybrush, 100, 300, 200, 100);
+            g.DrawEllipse(pen, 100, 300, 200, 100);
+            g.FillEllipse(bodybrush, 50, 280, 80, 80);
+            g.FillEllipse(earBrush, 80, 360, 40, 40);
+            g.FillEllipse(earBrush, 40, 260, 40, 40);
+            g.FillEllipse(earBrush, 80, 260, 40, 40);
+            g.FillEllipse(eyebrush, 80, 310, 8, 8);
+            g.FillEllipse(Brushes.Pink, 45, 320, 6, 6);
+            
+
+
 
 
 
@@ -57,6 +73,16 @@ namespace Maze_Game_Final
             switch (e.KeyCode)
             {
             }
+        }
+
+        private void mazeForm_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
