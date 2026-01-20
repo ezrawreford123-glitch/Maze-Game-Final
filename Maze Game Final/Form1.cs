@@ -13,9 +13,20 @@ namespace Maze_Game_Final
     public partial class mazeForm : Form
 
     {
-        
-        SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
 
+        SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
+        Image mouseCute = Properties.Resources.mouseCute;
+        //initial location of my hero (Han Solo)
+        Rectangle mouse = new Rectangle(20, 50, 70, 70);
+        //make booleans for movement
+        Boolean wPressed = false;
+        Boolean sPressed = false;
+        Boolean aPressed = false;
+        Boolean dPressed = false;
+
+        int stepSize = 20;
+        Rectangle cheese = new Rectangle(520, 300, 70, 70);
+        Image cheesePic = Properties.Resources.cheesePic;
 
         public mazeForm()
         {
@@ -31,7 +42,7 @@ namespace Maze_Game_Final
         {
             Graphics g = e.Graphics;
             Pen wallPen = new Pen(Color.Yellow, 4);
-            
+
             g.DrawLine(wallPen, 100, 30, 100, 200);
             g.DrawLine(wallPen, 100, 200, 200, 200);
             g.DrawLine(wallPen, 200, 200, 200, 100);
@@ -47,15 +58,10 @@ namespace Maze_Game_Final
             Brush bodybrush = new SolidBrush(Color.LightGray);
             Brush earBrush = new SolidBrush(Color.Pink);
             Brush eyebrush = new SolidBrush(Color.Black);
-            g.FillEllipse(bodybrush, 100, 300, 200, 100);
-            g.DrawEllipse(pen, 100, 300, 200, 100);
-            g.FillEllipse(bodybrush, 50, 280, 80, 80);
-            g.FillEllipse(earBrush, 80, 360, 40, 40);
-            g.FillEllipse(earBrush, 40, 260, 40, 40);
-            g.FillEllipse(earBrush, 80, 260, 40, 40);
-            g.FillEllipse(eyebrush, 80, 310, 8, 8);
-            g.FillEllipse(Brushes.Pink, 45, 320, 6, 6);
-            
+
+            g.DrawImage(cheesePic, cheese);
+            g.DrawImage(mouseCute, mouse);
+          
 
 
 
@@ -72,18 +78,68 @@ namespace Maze_Game_Final
         {
             switch (e.KeyCode)
             {
+                case Keys.W:
+                    wPressed = true;
+                    break;
+                case Keys.S:
+                    sPressed = true;
+                    break;
+                case Keys.A:
+                    aPressed = true;
+                    break;
+                case Keys.D:
+                    dPressed = true;
+                    break;
             }
+
         }
 
         private void mazeForm_KeyUp(object sender, KeyEventArgs e)
         {
+            switch (e.KeyCode)
+            {
+                case Keys.W:
+                    wPressed = false;
+                    break;
+                case Keys.S:
+                    sPressed = false;
+                    break;
+                case Keys.A:
+                    aPressed = false;
+                    break;
+                case Keys.D:
+                    dPressed = false;
+                    break;
+            }
 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
 
+            mouseMovement();
+            Invalidate();
         }
+    
+
+private void mouseMovement()
+        {
+            //The rectangle object has .X and .Y .Width and .Height parameters
+            // this is how we change the .X and .Y
+            // You could try to add code to change the size when 
+            // a user hits a particular key!
+            if (wPressed)
+                mouse.Y -= stepSize;
+            if (sPressed)
+                mouse.Y += stepSize;
+            if (aPressed)
+                mouse.X -= stepSize;
+            if (dPressed)
+                mouse.X += stepSize;
+
+        }
+
     }
 }
+
 
