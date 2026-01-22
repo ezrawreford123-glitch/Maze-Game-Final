@@ -27,10 +27,12 @@ namespace Maze_Game_Final
         int stepSize = 20;
         Rectangle cheese = new Rectangle(520, 300, 70, 70);
         Image cheesePic = Properties.Resources.cheesePic;
+        int seconds = 0;
 
         public mazeForm()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void mazeForm_Load(object sender, EventArgs e)
@@ -61,6 +63,7 @@ namespace Maze_Game_Final
 
             g.DrawImage(cheesePic, cheese);
             g.DrawImage(mouseCute, mouse);
+            //this displays the mouse and cheese images in my form
           
 
 
@@ -90,6 +93,7 @@ namespace Maze_Game_Final
                 case Keys.D:
                     dPressed = true;
                     break;
+                    //this allows the user to move the mouse with the "WASD" keys
             }
 
         }
@@ -110,6 +114,7 @@ namespace Maze_Game_Final
                 case Keys.D:
                     dPressed = false;
                     break;
+                    
             }
 
         }
@@ -119,15 +124,16 @@ namespace Maze_Game_Final
 
             mouseMovement();
             Invalidate();
+            if (mouse.IntersectsWith(cheese))
+                currentTimer.Enabled = false;
+            //this will stop the timer when the mouse reaches the cheese
+
         }
     
 
 private void mouseMovement()
         {
-            //The rectangle object has .X and .Y .Width and .Height parameters
-            // this is how we change the .X and .Y
-            // You could try to add code to change the size when 
-            // a user hits a particular key!
+         
             if (wPressed)
                 mouse.Y -= stepSize;
             if (sPressed)
@@ -139,6 +145,26 @@ private void mouseMovement()
 
         }
 
+        private void currentTimer_Tick(object sender, EventArgs e)
+        {
+            label3.Text = currentTimer.ToString();
+            seconds++;
+            label3.Text = seconds.ToString();
+            // this will display a counting of seconds on the timer label
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            mouse.X = 20;
+            mouse.Y = 50;
+            Invalidate();
+            currentTimer.Enabled = false;
+            label3.Text = "0";wa
+
+            
+            
+        }
     }
 }
 
