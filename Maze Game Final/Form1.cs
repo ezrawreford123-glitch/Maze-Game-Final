@@ -142,6 +142,7 @@ private void mouseMovement()
                 mouse.X -= stepSize;
             if (dPressed)
                 mouse.X += stepSize;
+            
 
         }
 
@@ -160,9 +161,8 @@ private void mouseMovement()
             mouse.Y = 50;
             Invalidate();
             currentTimer.Enabled = false;
-            label3.Text = "0";wa
-
-            
+            label3.Text = "0";
+            //I couldnt understand how to make the timer go back to zero after restarting... I got it to say 0 but it would just continue the timer from the previous run.
             
         }
     }
